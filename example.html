@@ -44,12 +44,66 @@
 		</style>
 
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular-route.min.js"></script>
 		<script>
-			var app = angular.module('app', []);
-			app.controller('example', function ($scope) {
-				console.log('controller');
-				$scope.breadcrumbsdata = [
-					{label:'Home', url:'#'}, {label:'Properties', url:'#'}, {label:'Rooms', url:''},
+			var app = angular.module('app', ['ngRoute']);
+			// Angular route links config
+			app.config(function ($routeProvider) {
+				$routeProvider.when('/home', {
+					templateUrl: 'home.html',
+					controller: 'homeCtrl',
+				}).when('/properties', {
+					templateUrl: 'properties.html',
+					controller: 'propertiesCtrl',
+				}).when('/properties/:param', {
+					templateUrl: 'property.html',
+					controller: 'propertyCtrl',
+				}).when('/properties/:param/room/:param2', {
+					templateUrl: 'room.html',
+					controller: 'roomCtrl',
+				}).otherwise({ redirectTo: '/home' });
+			});
+
+			// Main page controller
+			app.controller('example', function ($scope, $rootScope) {
+				$rootScope.angularbreadcrumbsdata = [];
+				$scope.properties = [
+					'Big house',
+					'Beach house',
+					'Mountain cabin',
+				];
+
+				$scope.rooms = [
+					'Master bed room',
+					'Kids bed room',
+					'Dining',
+					'Gardem',
+					'Garage',
+				];
+			});
+			// Home page controller
+			app.controller('homeCtrl', function ($scope, $rootScope) {
+				$rootScope.angularbreadcrumbsdata = [{label:'Home', url:''}];
+			});
+			// Properties page controller
+			app.controller('propertiesCtrl', function ($scope, $rootScope) {
+				$rootScope.angularbreadcrumbsdata = [
+					{label:'Home', url:'#/home'}, {label:'Properties', url:''},
+				];
+			});
+			// Property page controller
+			app.controller('propertyCtrl', function ($scope, $rootScope) {
+				$scope.propertyNumber = location.hash.split('/')[2];
+				$rootScope.angularbreadcrumbsdata = [
+					{label:'Home', url:'#/home'}, {label:'Properties', url:'#/properties'}, {label: $scope.properties[$scope.propertyNumber], url:''}
+				];
+			});
+			// Room page controller
+			app.controller('roomCtrl', function ($scope, $rootScope) {
+				$scope.propertyNumber = location.hash.split('/')[2];
+				$scope.roomNumber = location.hash.split('/')[4];
+				$rootScope.angularbreadcrumbsdata = [
+					{label:'Home', url:'#/home'}, {label:'Properties', url:'#/properties'}, {label: $scope.properties[$scope.propertyNumber], url:'#/properties/' + $scope.propertyNumber}, {label: $scope.rooms[$scope.roomNumber], url: ''}
 				];
 			});
 		</script>
@@ -61,6 +115,7 @@
 		<h1>Angular breadcrumb trail</h1>
 
 		<p>A nice Angular breadcrumb trail system for custom URLs.</p>
-		<angular-crumbtrail data="breadcrumbsdata" template="false" separator="|"></angular-crumbtrail>
+		<angular-crumbtrail template="false" separator="|"></angular-crumbtrail>
+		<div data-ng-view></div>
 	</body>
 </html>
