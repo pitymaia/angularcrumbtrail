@@ -66,7 +66,7 @@
 
 			// Main page controller
 			app.controller('example', function ($scope, $rootScope) {
-				$rootScope.angularBreadcrumbData = [];
+				$rootScope.angularCrumbTrailData = [];
 				$scope.properties = [
 					'Big house',
 					'Beach house',
@@ -83,18 +83,18 @@
 			});
 			// Home page controller
 			app.controller('homeCtrl', function ($scope, $rootScope) {
-				$rootScope.angularBreadcrumbData = [{label:'Home', url:''}];
+				$rootScope.angularCrumbTrailData = [{label:'Home', url:''}];
 			});
 			// Properties page controller
 			app.controller('propertiesCtrl', function ($scope, $rootScope) {
-				$rootScope.angularBreadcrumbData = [
+				$rootScope.angularCrumbTrailData = [
 					{label:'Home', url:'#/home'}, {label:'Properties', url:''},
 				];
 			});
 			// Property page controller
 			app.controller('propertyCtrl', function ($scope, $rootScope) {
 				$scope.propertyNumber = location.hash.split('/')[2];
-				$rootScope.angularBreadcrumbData = [
+				$rootScope.angularCrumbTrailData = [
 					{label:'Home', url:'#/home'}, {label:'Properties', url:'#/properties'}, {label: $scope.properties[$scope.propertyNumber], url:''}
 				];
 			});
@@ -102,7 +102,7 @@
 			app.controller('roomCtrl', function ($scope, $rootScope) {
 				$scope.propertyNumber = location.hash.split('/')[2];
 				$scope.roomNumber = location.hash.split('/')[4];
-				$rootScope.angularBreadcrumbData = [
+				$rootScope.angularCrumbTrailData = [
 					{label:'Home', url:'#/home'}, {label:'Properties', url:'#/properties'}, {label: $scope.properties[$scope.propertyNumber], url:'#/properties/' + $scope.propertyNumber}, {label: $scope.rooms[$scope.roomNumber], url: ''}
 				];
 			});
