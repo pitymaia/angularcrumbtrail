@@ -51,3 +51,48 @@ This will show just the label "Home" as ACTIVE step with no navigation option.
 If you dont want any step, just empty the list like this:
 
     $rootScope.angularCrumbTrailData = [];
+
+# Configurations
+
+You can use bootstrap style as a template just tell the atrribute "template" on the directive that you whant use boostrap:
+
+    <angular-crumbtrail template="bootstrap"></angular-crumbtrail>
+
+To style your trails just use the class angularcrumbtrail like this:
+
+    .angularcrumbtrail {
+        background-color: white;
+        padding: 0.5em !important;
+    }
+
+You need style the li tag to make it inline-block like this:
+
+    .angularcrumbtrail li {
+        display: inline-block;
+        margin-right: 0.5em;
+    }
+
+To style the links do this:
+
+    .angularcrumbtrail a {
+        color: orange;
+        text-decoration: none;
+        font-size: 10pt;
+    }
+
+    .angularcrumbtrail a:hover {
+        color: red;
+        text-decoration: underline;
+    }
+
+The active links can be also changed:
+
+    .angularcrumbtrail .active {
+        color: black !important;
+        text-decoration: none !important;
+        cursor: default;
+    }
+
+To use any custom separator use the attribute "separator" like this:
+
+    <angular-crumbtrail separator="|"></angular-crumbtrail>
