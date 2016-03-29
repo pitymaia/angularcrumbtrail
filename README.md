@@ -54,11 +54,11 @@ If you dont want any step, just empty the list like this:
 
 # Configurations
 
-You can use bootstrap style as a template just tell the atrribute "template" on the directive that you whant use boostrap:
+You can use bootstrap style as a template just add the atrribute "template" on the directive with boostrap flag:
 
     <angular-crumbtrail template="bootstrap"></angular-crumbtrail>
 
-To style your trails just use the class angularcrumbtrail like this:
+If you dont use bootstrap, just custom style your breadcrumb trails. Use the class angularcrumbtrail like this:
 
     .angularcrumbtrail {
         background-color: white;
