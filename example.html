@@ -2,6 +2,8 @@
 <html data-ng-app="app">
 	<head>
 		<meta charset="UTF-8">
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 		<style>
 			body {
 				background-color: lightyellow;
@@ -13,22 +15,30 @@
 			p {
 				color: green;
 			}
-			.breadcrumb a {
+			.angularcrumbtrail {
+				background-color: white;
+				padding: 0.5em !important;
+			}
+			.angularcrumbtrail a {
 				color: orange;
 				text-decoration: none;
 				font-size: 10pt;
 			}
-			.breadcrumb {
+			.angularcrumbtrail a:hover {
+				color: red;
+				text-decoration: underline;
+			}
+			.angularcrumbtrail {
 				margin-left: 0;
 				padding-left: 0;
 			}
-			.breadcrumb li {
+			.angularcrumbtrail li {
 				display: inline-block;
-				margin: 0.5em;
+				margin-right: 0.5em;
 			}
-			.breadcrumb .active {
-				color: black;
-				text-decoration: none;
+			.angularcrumbtrail .active {
+				color: black !important;
+				text-decoration: none !important;
 				cursor: default;
 			}
 		</style>
@@ -36,15 +46,21 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
 		<script>
 			var app = angular.module('app', []);
+			app.controller('example', function ($scope) {
+				console.log('controller');
+				$scope.breadcrumbsdata = [
+					{label:'Home', url:'#'}, {label:'Properties', url:'#'}, {label:'Rooms', url:''},
+				];
+			});
 		</script>
 		<script src="angularcrumbtrail.js"></script>
 
 		<title>Angular breadcrumb trail</title>
 	</head>
-	<body>
+	<body data-ng-controller="example">
 		<h1>Angular breadcrumb trail</h1>
 
 		<p>A nice Angular breadcrumb trail system for custom URLs.</p>
-		<angular-crumbtrail></angular-crumbtrail>
+		<angular-crumbtrail data="breadcrumbsdata" template="false" separator="|"></angular-crumbtrail>
 	</body>
 </html>

@@ -2,19 +2,21 @@
 
 app.directive('angularCrumbtrail', function () {
 	return {
-		scope: true,
+		scope: false,
 		restrict: 'AE',
-		template:   '<ol class="breadcrumb">' +
-					'<li data-ng-repeat="breadcrumb in breadcrumbs.get()">' +
-						'<a href="" data-ng-bind="breadcrumb" data-ng-class="{ active: $last }"></a>' +
+		template:   '<ol class="{{angularbreadcrumbs.template}}" data-ng-if="angularbreadcrumbs.data.length">' +
+					'<li data-ng-repeat="breadcrumb in angularbreadcrumbs.data">' +
+						'<a data-ng-href="{{breadcrumb.url}}" data-ng-bind="breadcrumb.label" data-ng-class="{ active: $last }"></a><span data-ng-if="!$last &amp;&amp; angularbreadcrumbs.separator" data-ng-bind="angularbreadcrumbs.separator"></span>' +
 					'</li>' +
 					'</ol>',
 		link: function ($scope, element, attrs) {
-			console.log("Carregado!");
-			$scope.breadcrumbs = {};
-			$scope.breadcrumbs.get = (function () {
-				return ['Home', 'Propertie', 'Room'];
-			});
+			$scope.angularbreadcrumbs = {
+				data: $scope.$eval(attrs.data),
+			};
+
+			if (attrs.template == 'bootstrap') $scope.angularbreadcrumbs.template = 'breadcrumb';
+			else $scope.angularbreadcrumbs.template = 'angularcrumbtrail';
+			if (attrs.separator) $scope.angularbreadcrumbs.separator = " " + attrs.separator;
 		},
 	};
 });
