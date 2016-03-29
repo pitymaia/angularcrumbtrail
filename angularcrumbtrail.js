@@ -1,6 +1,6 @@
 'use strict';
 
-app.directive('angularCrumbtrail', function ($rootScope) {
+angular.module('angularCrumbtrail', []).directive('angularCrumbtrail', function ($rootScope) {
 	return {
 		scope: false,
 		restrict: 'AE',

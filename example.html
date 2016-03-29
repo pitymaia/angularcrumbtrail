@@ -46,7 +46,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular-route.min.js"></script>
 		<script>
-			var app = angular.module('app', ['ngRoute']);
+			var app = angular.module('app', ['ngRoute', 'angularCrumbtrail']);
 			// Angular route links config
 			app.config(function ($routeProvider) {
 				$routeProvider.when('/home', {
@@ -107,7 +107,6 @@
 				];
 			});
 		</script>
-		<script src="angularcrumbtrail.js"></script>
 
 		<title>Angular breadcrumb trail</title>
 	</head>
@@ -118,4 +117,5 @@
 		<angular-crumbtrail template="false" separator="|"></angular-crumbtrail>
 		<div data-ng-view></div>
 	</body>
+	<script src="angularcrumbtrail.js"></script>
 </html>
