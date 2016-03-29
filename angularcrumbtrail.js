@@ -4,8 +4,8 @@ angular.module('angularCrumbtrail', []).directive('angularCrumbtrail', function 
 	return {
 		scope: false,
 		restrict: 'AE',
-		template:   '<ol class="{{angularbreadcrumbs.template}}" data-ng-if="angularbreadcrumbsdata.length">' +
-					'<li data-ng-repeat="breadcrumb in angularbreadcrumbsdata">' +
+		template:   '<ol class="{{angularbreadcrumbs.template}}" data-ng-if="angularBreadcrumbData.length">' +
+					'<li data-ng-repeat="breadcrumb in angularBreadcrumbData">' +
 						'<a data-ng-href="{{breadcrumb.url}}" data-ng-bind="breadcrumb.label" data-ng-class="{ active: $last }"></a><span data-ng-if="!$last &amp;&amp; angularbreadcrumbs.separator" data-ng-bind="angularbreadcrumbs.separator"></span>' +
 					'</li>' +
 					'</ol>',
