@@ -39,13 +39,15 @@ For each page or view you need add a new step, just populate the list with the s
     ];
 
 Now we have a 3 steps breadcrumb trail with the "Help" as the ACTIVE step.
-If you use just one step, taht will be the begining of the trail:
+
+If you use just one step, that will be the begining of the trail:
 
     $rootScope.angularbreadcrumbsdata = [
         {label: 'Home', url: ''},
     ];
 
 This will show just the label "Home" as ACTIVE step with no navigation option.
+
 If you dont want any step, just empty the list like this:
 
     $rootScope.angularbreadcrumbsdata = [];
