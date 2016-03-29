@@ -3,14 +3,19 @@ A simple Angular breadcrumb trail system that allows custom steps/URLs not based
 
 # Install
 Add angularcrumbtrail.js into your project like this:
+
     <script src="angularcrumbtrail.js"></script>
 
 Add the Angular crumb trail as a dependency in your Angular app like this:
+
     var app = angular.module('app', ['ngRoute', 'angularCrumbtrail']);
 
 Add the directive tag in your view like this:
+
     <angular-crumbtrail template="false" separator="|"></angular-crumbtrail>
+
 You also can use the directive as attribute like this:
+
     <div angular-crumbtrail template="false" separator="|"></div>
 
 # How to use
