@@ -98,4 +98,4 @@ To use any custom separator use the attribute "separator" like this:
     <angular-crumbtrail separator="|"></angular-crumbtrail>
 
 # Demo
-See a example of the bradcrumb trail working here: http://pitymaia.github.io/
+See an example of the bradcrumb trail working here: http://pitymaia.github.io/
