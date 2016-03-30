@@ -1,6 +1,9 @@
 # angularcrumbtrail
 A simple Angular breadcrumb trail system that allows custom steps/URLs not based on location or router.
 
+# Demo
+See an example of the bradcrumb trail working here: http://pitymaia.github.io/
+
 # Install
 Add angularcrumbtrail.js into your project like this:
 
@@ -96,6 +99,3 @@ The active links can be also changed:
 To use any custom separator use the attribute "separator" like this:
 
     <angular-crumbtrail separator="|"></angular-crumbtrail>
-
-# Demo
-See an example of the bradcrumb trail working here: http://pitymaia.github.io/
