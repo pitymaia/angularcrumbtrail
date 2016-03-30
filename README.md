@@ -96,3 +96,6 @@ The active links can be also changed:
 To use any custom separator use the attribute "separator" like this:
 
     <angular-crumbtrail separator="|"></angular-crumbtrail>
+
+# Demo
+See a example of the bradcrumb trail working here: http://pitymaia.github.io/
