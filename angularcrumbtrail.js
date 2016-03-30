@@ -5,9 +5,13 @@ angular.module('angularCrumbtrail', []).directive('angularCrumbtrail', function 
 		scope: false,
 		restrict: 'AE',
 		template:   '<ol class="{{angularbreadcrumbs.template}}" data-ng-if="angularCrumbTrailData.length">' +
-					'<li data-ng-repeat="breadcrumb in angularCrumbTrailData">' +
-						'<a data-ng-href="{{breadcrumb.url}}" data-ng-bind="breadcrumb.label" data-ng-class="{ active: $last }"></a><span data-ng-if="!$last &amp;&amp; angularbreadcrumbs.separator" data-ng-bind="angularbreadcrumbs.separator"></span>' +
-					'</li>' +
+						'<li data-ng-if="angularbreadcrumbs.template != \'breadcrumb\'" data-ng-repeat="breadcrumb in angularCrumbTrailData">' +
+							'<a data-ng-href="{{breadcrumb.url}}" data-ng-bind="breadcrumb.label" data-ng-class="{ active: $last }"></a><span data-ng-if="!$last &amp;&amp; angularbreadcrumbs.separator" data-ng-bind="angularbreadcrumbs.separator"></span>' +
+						'</li>' +
+						// bootstrap way
+						'<li data-ng-if="angularbreadcrumbs.template == \'breadcrumb\'" data-ng-repeat="breadcrumb in angularCrumbTrailData"  data-ng-class="{ active: $last }">' +
+							'<a data-ng-if="!$last" data-ng-href="{{breadcrumb.url}}" data-ng-bind="breadcrumb.label"></a><span data-ng-if="$last" data-ng-bind="breadcrumb.label"></span>' +
+						'</li>' +
 					'</ol>',
 		link: function ($scope, element, attrs) {
 			$scope.angularbreadcrumbs = {};
