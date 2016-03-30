@@ -21,6 +21,15 @@ You also can use the directive as attribute like this:
 
     <div angular-crumbtrail template="false" separator="|"></div>
 
+You can add the CSS style sheet:
+
+    <link rel="stylesheet" type="text/css" href="angularcrumbtrail.css">
+
+But if you use bootstrap as template you dont need the above CSS:
+
+    <div angular-crumbtrail template="bootstrap"></div>
+
+
 # How to use
 All you need is to populate a $rootScope list named angularCrumbTrailData with objects for your trail steps containing a label and a URL for each trail step.
 
@@ -57,11 +66,12 @@ If you dont want any step, just empty the list like this:
 
 # Configurations
 
-You can use bootstrap style as a template just add the atrribute "template" on the directive with boostrap flag:
+As I say before you can use bootstrap style as a template just add the atrribute "template" on the directive with boostrap flag.
+Ifo you use bootstrap template, dont use the "separator" attribute.
 
     <angular-crumbtrail template="bootstrap"></angular-crumbtrail>
 
-If you dont use bootstrap, just custom style your breadcrumb trails. Use the class angularcrumbtrail like this:
+If you dont use bootstrap, just add a CSS page and custom style your breadcrumb trails. Use the class angularcrumbtrail like this:
 
     .angularcrumbtrail {
         background-color: white;

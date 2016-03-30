@@ -1,0 +1,26 @@
+.angularcrumbtrail {
+    background-color: white;
+    padding: 0.5em !important;
+}
+.angularcrumbtrail a {
+    color: orange;
+    text-decoration: none;
+    font-size: 10pt;
+}
+.angularcrumbtrail a:hover {
+    color: red;
+    text-decoration: underline;
+}
+.angularcrumbtrail {
+    margin-left: 0;
+    padding-left: 0;
+}
+.angularcrumbtrail li {
+    display: inline-block;
+    margin-right: 0.5em;
+}
+.angularcrumbtrail .active {
+    color: black !important;
+    text-decoration: none !important;
+    cursor: default;
+}
