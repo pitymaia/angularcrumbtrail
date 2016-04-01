@@ -13,13 +13,23 @@ Add the Angular crumb trail as a dependency in your Angular app like this:
 
     var app = angular.module('app', ['ngRoute', 'angularCrumbtrail']);
 
+You need define in your controller a variable to hold the steps data like this:
+
+    $rootScope.angularCrumbTrailData = [];
+
+    *See more details about this variable in the next section "How to use"
+
 Add the directive tag in your view like this:
 
-    <angular-crumbtrail template="false" separator="|"></angular-crumbtrail>
+    <angular-crumbtrail data="angularCrumbTrailData" separator="|"></angular-crumbtrail>
+
+    *Get notice about the data attribute where we put the $rootScope.angularCrumbTrailData list.
+    That way the breadcrumb trail will use it and you will be free to use two or more breadcrumb tails.
+    To do that, just add the second directive with a diferent list in the data attibute.
 
 You also can use the directive as attribute like this:
 
-    <div angular-crumbtrail template="false" separator="|"></div>
+    <div angular-crumbtrail data="angularCrumbTrailData" separator="|"></div>
 
 You can add the CSS style sheet:
 
@@ -27,8 +37,9 @@ You can add the CSS style sheet:
 
 But if you use bootstrap as template you dont need the above CSS:
 
-    <div angular-crumbtrail template="bootstrap"></div>
+    <div angular-crumbtrail data="angularCrumbTrailData" template="bootstrap"></div>
 
+    *Notice the template attribute, that tell the breadcrumb trail to use bootstrap style
 
 # How to use
 All you need is to populate a $rootScope list named angularCrumbTrailData with objects for your trail steps containing a label and a URL for each trail step.
