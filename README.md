@@ -80,12 +80,12 @@ If you dont want any step, just empty the list like this:
 
 To use any custom separator use the attribute "separator" like this:
 
-    <angular-crumbtrail separator="|"></angular-crumbtrail>
+    <angular-crumbtrail data="angularCrumbTrailData" separator="|"></angular-crumbtrail>
 
 As I said before you can use bootstrap style as a template just add the atrribute "template" on the directive with boostrap flag.
 Ifo you use bootstrap template, dont use the "separator" attribute.
 
-    <angular-crumbtrail template="bootstrap"></angular-crumbtrail>
+    <angular-crumbtrail data="angularCrumbTrailData" template="bootstrap"></angular-crumbtrail>
 
 If you dont use bootstrap, just add a CSS file and custom style your breadcrumb trails. Use the class angularcrumbtrail like this:
 
