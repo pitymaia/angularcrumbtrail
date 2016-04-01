@@ -1,5 +1,6 @@
 # angularcrumbtrail
-A simple Angular breadcrumb trail system that allows custom steps/URLs not based on location or router.
+A simple AngularJS breadcrumb trail system that allows custom steps/URLs not automatic generated based on location or router.
+In each controller view you have full control to set the steps you want the breadcrumb trail show.
 
 # Demo
 See an example of the bradcrumb trail working here: http://pitymaia.github.io/
