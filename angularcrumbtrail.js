@@ -1,6 +1,6 @@
 'use strict';
 
-export function instantiateAngularCrumbtrail() {
+function instantiateAngularCrumbtrail() {
 	angular.module('angularCrumbtrail', []).directive('angularCrumbtrail', function ($compile) {
 		return {
 			scope: true,
@@ -39,3 +39,5 @@ export function instantiateAngularCrumbtrail() {
 		};
 	});
 }
+
+export { instantiateAngularCrumbtrail };
